@@ -1,0 +1,785 @@
+.serviceList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.serviceMainCard {
+  cursor: pointer;
+}
+
+.serviceCard {
+  background: #ecf6ff;
+  border: 1px solid #096dd9;
+  border-radius: 4px;
+  width: "500px";
+  overflow: hidden;
+
+  &__head {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__authImage {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__authTitle {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.85);
+    margin: 0;
+  }
+
+  &__authStatus {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  &__body {
+    background: #fff;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__status {
+    text-align: center;
+    padding: 0 10px;
+
+    &:not(:last-child) {
+      border-right: 1px solid #096dd9;
+    }
+
+    &-value {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      color: rgba(0, 0, 0, 0.85);
+      margin: 0 0 3px;
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      color: rgba(0, 0, 0, 0.85);
+      display: block;
+    }
+  }
+
+  &__DateTime {
+    padding: 8px 16px;
+    background: #fff;
+
+    p {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 32px;
+      color: rgba(0, 0, 0, 0.85);
+      margin: 0;
+    }
+  }
+
+  &--pink {
+    border-color: #8f3d51;
+    background: #feecf0;
+
+    .serviceCard__status {
+      border-color: #8f3d51;
+    }
+  }
+
+  &--purple {
+    border-color: #613d8f;
+    background: #f1ecff;
+
+    .serviceCard__status {
+      border-color: #613d8f;
+    }
+  }
+
+  &--green {
+    border-color: #36634d;
+    background: #dafbeb;
+
+    .serviceCard__status {
+      border-color: #36634d;
+    }
+  }
+
+  &--deactivate {
+    border-color: #bbb;
+    background: #ddd;
+  }
+}
+
+.serviceItems {
+  width: 240px;
+
+  &__text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    margin: 10px 0 0;
+    text-align: center;
+  }
+
+  &:first-child {
+    margin-right: 40px;
+  }
+}
+
+.mb-60 {
+  margin-bottom: 60px !important;
+}
+
+.mb-40 {
+  margin-bottom: 40px !important;
+}
+
+.customCalender {
+  position: relative;
+  width: 100%;
+  max-height: 600px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0px 2px 8px rgb(0 0 0 / 15%);
+  margin-top: 60px;
+
+  &-inner {
+    overflow: auto;
+    height: calc(600px - 42px);
+  }
+
+  &-header {
+    border-bottom: 1px solid #d9d9d9;
+    position: sticky;
+    top: 0;
+    z-index: 21;
+    background: #fff;
+  }
+
+  &-topBar {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 12;
+    background: #096dd9;
+    border-radius: 4px 4px 0px 0px;
+    position: sticky;
+    top: 0;
+    z-index: 21;
+
+    p {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      color: #ffffff;
+      margin: 0 38px;
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-day {
+    width: calc(100% - 90px);
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    z-index: 12;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  &-dayBox {
+    border-left: 1px solid #d9d9d9;
+    background: #fff;
+    padding: 8px 15px;
+    text-align: center;
+    min-width: 148px;
+    box-sizing: border-box;
+  }
+
+  &-dayTitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.85);
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  &-daySubTitle {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.85);
+    margin: 2px 0 0;
+  }
+
+  &-time {
+    width: 90px;
+    background-color: #fff;
+    padding-top: 15px;
+  }
+
+  &-timeText {
+    height: 30px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-body {
+    display: flex;
+  }
+
+  &-data {
+    width: calc(100% - 90px);
+    display: flex;
+  }
+}
+
+.eventsBox-grey {
+  background: #ecf6ff;
+  border: 1px solid rgba(9, 109, 217, 0.3);
+  border-radius: 2px;
+  position: absolute;
+  width: 25px;
+  cursor: pointer;
+  padding: 8px 15px;
+}
+
+.eventsBox-blue {
+  background: #ecf6ff;
+  border: 1px solid rgba(9, 109, 217, 0.3);
+  border-radius: 2px;
+  position: absolute;
+  width: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0;
+  padding: 0px;
+
+  &.normalCard {
+    background: #fff;
+  }
+
+  .serviceCard__head {
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    background: #ecf6ff;
+  }
+
+  .serviceCard__DateTime {
+    padding: 8px 10px;
+
+    p {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+}
+
+.eventsBox-pink {
+  background: #feecf0;
+  border: 1px solid rgba(143, 61, 81, 0.3);
+  border-radius: 2px;
+  position: absolute;
+  width: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0;
+  padding: 8px 15px;
+}
+
+.eventsBox-purple {
+  background: #f1ecff;
+  border: 1px solid rgba(65, 54, 99, 0.3);
+  border-radius: 2px;
+  position: absolute;
+  width: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0;
+  padding: 8px 15px;
+}
+
+.eventsBox-green {
+  background: #dafbeb;
+  border: 1px solid rgba(54, 99, 77, 0.3);
+  border-radius: 2px;
+  position: absolute;
+  width: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0;
+  padding: 8px 15px;
+}
+
+.eventsBox-infoCard {
+  display: block !important;
+  z-index: 111;
+}
+
+.eventBox-control {
+  z-index: 20;
+  position: relative;
+  height: 25px;
+  background: #fff;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+    z-index: 20;
+
+    svg {
+      height: 22px;
+      width: 22px;
+    }
+
+    &:last-child {
+      position: absolute;
+      right: 10px;
+      left: auto;
+      bottom: 8px;
+    }
+  }
+}
+
+.fromGroup-chips-Availability {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 12px;
+
+  .MuiPaper-root {
+    min-height: 32px !important;
+    height: auto;
+    margin: 0 !important;
+    margin-right: 0 !important;
+    padding: 10px !important;
+    flex-direction: column;
+    font-size: 15px;
+    line-height: 16px;
+
+    span {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.calender-dateDivider {
+  position: relative;
+  width: calc(100% / 7);
+  height: 100%;
+  background-color: #fff;
+  border-left: 1px solid #d9d9d9;
+  min-width: 148px;
+  box-sizing: border-box;
+
+  &:first-child {
+    .calender-dateDivider__box {
+      &::after {
+        content: "";
+        height: 1px;
+        width: 12px;
+        background: #d9d9d9;
+        position: absolute;
+        left: -12px;
+        top: -1px;
+        display: block;
+      }
+
+      &:first-child:after {
+        display: none;
+      }
+    }
+  }
+
+  &__box {
+    border-bottom: 1px solid #d9d9d9;
+    height: 30px;
+    width: 100%;
+    position: relative;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  .serviceItems:first-child {
+    margin-right: 0;
+  }
+}
+
+// .e-popup-footer button:last-child{
+//   display: none;
+// }
+
+.e-event-create {
+  display: none;
+}
+
+@media only screen and (max-width: 1240px) {
+  .fromGroup-chips-Availability {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .serviceItems {
+    width: 260px;
+
+    &:first-child {
+      margin-right: 0;
+    }
+  }
+
+  .serviceCard {
+    width: 260px;
+  }
+
+  .fromGroup-chips-Availability {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .customCalender-topBar p {
+    font-size: 15px;
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .fromGroup-chips-Availability {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .serviceItems {
+    margin: 0 auto !important;
+  }
+
+  .fromGroup-chips-Availability {
+    grid-template-columns: 1fr;
+  }
+}
+
+//control schedule popup window
+.schedule-detail-model {
+  .MuiDialog-paper {
+    max-width: 710px;
+    padding: 0 40px;
+    .largeModel__head {
+      // background: #ffffff;
+      border-bottom: 1px solid #dee2e6;
+      padding: 12px 14px 8px 12px;
+      .largeModel__title {
+        color: #fff; // #212529;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .largeModel__closeBtn {
+        background-color: transparent !important;
+        color: #fff; //#212529 !important;
+      }
+    }
+    .largeModel__body {
+      .bookingModel {
+        // padding: 20px;
+        .bookingModel__form {
+          margin-top: 15px;
+          .userList-name {
+            span {
+              font-size: 15px;
+              font-weight: bold;
+            }
+            .userSmallCircle {
+              height: 35px;
+              width: 35px;
+            }
+          }
+          .MuiGrid-item {
+            padding-top: 5px;
+          }
+          .fromLabel {
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .fromGroup-chips {
+            .MuiPaper-root {
+              height: 40px;
+              font-size: 14px;
+              line-height: normal;
+            }
+          }
+          form {
+            .MuiGrid-item {
+              input {
+                height: auto;
+                padding: 6.5px 12px;
+              }
+              button {
+                margin-right: 10px;
+                line-height: normal;
+                padding: 5px 14px;
+              }
+            }
+            .MuiGrid-item.MuiGrid-grid-xs-12 {
+              &:first-child {
+                padding-top: 0 !important;
+                .fromGroup {
+                  margin-bottom: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .largeModel__footer {
+      justify-content: space-between !important;
+      .button {
+        padding: 7px 15px;
+        height: auto;
+        font-size: 15px;
+        line-height: normal;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+/* Read Documentation at
+  https://ej2.syncfusion.com/react/documentation/schedule/scheduler-styling
+  note: 
+  - worked: use default, no customization. 
+  - worked: use darker gray, use non-white color worked. 
+  - not working: use darker grey, use white color for working hours. 
+*/
+.control-section {
+  .e-schedule {
+    .template-wrap {
+      width: 100%;
+    }
+  
+    //view: day, week
+    .e-vertical-view {
+      .e-work-cells {
+        background: rgb(238, 238, 238) !important;
+        &.e-work-hours {
+          background: #6bb283 !important;
+        }
+      }
+    }
+
+    //view: timeline day, timeline week
+    .e-timeline-view {
+      .e-work-cells {
+        background: rgb(238, 238, 238) !important;
+        &.e-work-hours {
+          background: #6bb283 !important;
+        }
+      }
+    }
+
+    //view: month
+    .e-month-view {
+      .e-work-cells {
+        // background: rgb(238, 238, 238) !important;
+        &.e-work-hours {
+          background: #6bb283 !important;
+        }
+ 
+      }
+    }
+
+    // //view: timeline month
+    // .e-timeline-month-view {
+    //   .e-work-cells {
+    //     // background: rgb(238, 238, 238) !important;
+    //     &.e-work-hours {
+    //       background: #fff; // #096dd9 !important;
+    //     }
+    //   }
+    // }
+  }
+}
+
+  //make timeline view (day, week, month) looks nice!
+  // .schedule-control-section {
+  //   .e-schedule {
+  //     .e-timeline-view .e-day-view .e-agenda-view {
+  //       .e-resource-column-wrap {
+  //         table td {
+  //           padding: 0;
+  //           div {
+  //             width: 100%;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // .e-block-appointment {
+  //   background: #d0d0d5;
+  // }
+  // .e-timeline-view {
+  //   .e-resource-cells {
+  //     height: 65px;
+  //   }
+  // }
+  // }
+// }
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.fromGroup-repeatDay {
+  display: flex;
+  justify-content: space-between;
+  div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: #eee;
+    text-align: center;
+    line-height: 30px;
+  }
+  .fromGroup-dayName {
+    background-color: #096dd9;
+    color: #fff;
+  }
+}
+
+.check-AuthBlock {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: 700;
+  input {
+    margin-right: 16px;
+  }
+}
+
+.datepickerBlock {
+  width: 140px;
+  label,
+  legend {
+    display: none;
+  }
+  .MuiIconButton-edgeEnd {
+    background-color: transparent !important;
+    svg {
+      color: #096dd9;
+      font-size: 20px;
+    }
+  }
+  input {
+    border: 0;
+    font-size: 14px;
+    margin: 0;
+  }
+  .MuiInputAdornment-positionEnd {
+    margin-left: 0 !important;
+  }
+
+  .MuiOutlinedInput-notchedOutline {
+    top: 0;
+  }
+}
+.deleteSchedule.schedule-detail-model .MuiDialog-paper {
+  padding: 0;
+}
+.checkBoxEdit {
+  margin-bottom: 18px;
+  label {
+    margin-left: 0 !important;
+    span {
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+.flexNowrap {
+  flex-wrap: nowrap !important;
+  @media only screen and (max-width: 991px) {
+    flex-wrap: wrap !important;
+  }
+}
